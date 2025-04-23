@@ -2779,8 +2779,8 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
   color: #212529;
-  background-color: #f9c807;
-  border-color: #edbe06;
+  background-color: var(--green);
+  border-color: var(--green);;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -11490,3 +11490,33 @@ section.height-auto {
 .testmonial-wrapper .title {
   margin-top: -40px;
 }
+
+/* #region Loader  */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #51A212;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* #endregion Loader */

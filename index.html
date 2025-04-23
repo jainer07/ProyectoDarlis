@@ -4,26 +4,36 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with Creative Design landing page.">
-    <meta name="author" content="Devcrud">
-    <title>Creative Design | Free Bootstrap 4.3.x template</title>
+    <meta name="theme-color" content="#51A212">
+    <meta name="description"
+        content="Una estrategia pedagógica para el aprendizaje sobre la importancia ecológica de las microalgas, además de fomentar competencias ambientales desde un enfoque pedagógico.">
+    <meta name="author" content="Darlis Martinez, Doranisy Alvear">
+    <title>EcoAlga - Enseñanza Ecológica de Microalgas</title>
 
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="icon" type="image/png" href="/assets/imgs/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/imgs/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/imgs/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/imgs/apple-touch-icon.png" />
 
     <!-- Bootstrap + Creative Design main styles -->
     <link rel="stylesheet" href="assets/css/creative-design.css">
-
+    <link rel="manifest" href="manifest.json" />
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+    </div>
 
     <!-- Page Navbar -->
     <nav id="scrollspy" class="navbar page-navbar navbar-light navbar-expand-md fixed-top" data-spy="affix"
         data-offset-top="20">
         <div class="container">
-            <a class="navbar-brand" href="#"><strong class="text-primary">Creative</strong> <span
-                    class="text-dark">Design</span></a>
+            <a class="navbar-brand" href="#">
+                <span class="text-dark">Eco</span><strong class="text-primary">Alga</strong>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,9 +56,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
-                    <li class="nav-item ml-md-4">
-                        <a class="nav-link btn btn-primary" href="components.html">Components</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -58,11 +65,12 @@
     <header id="home" class="header">
         <div class="overlay"></div>
         <div class="header-content">
-            <p>Lorem ipsum dolor sit amet.</p>
-            <h6>Creative Design</h6>
-            <button class="btn btn-outline-light">Download Now</button>
+            <p>Enseñanza Ecológica de Microalgas</p>
+            <h6><span>Eco</span><strong class="text-primary">Alga</strong></h6>
+            <button id="installBtn" class="btn btn-outline-light" style="display: none;">Instalar App</button>
         </div>
-    </header><!-- End of Page Header -->
+    </header>
+    <!-- End of Page Header -->
 
     <!-- About Section -->
     <section id="about">
@@ -359,6 +367,18 @@
     <!-- Creative Design js -->
     <script src="assets/js/creative-design.js"></script>
 
+
+    <script>
+        window.addEventListener('load', configurarBotonInstalacionPWA);
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('✅ Service Worker registrado con éxito'))
+                    .catch(err => console.error('❌ Error al registrar el Service Worker', err));
+            });
+        }
+    </script>
 </body>
 
 </html>
